@@ -78,7 +78,7 @@ Dependensi ada di `requirements.txt`.
 |---|---|
 | Finansial | Laba Rp3.000.000, sisa uang bebas Rp1.500.000, batas aman (25%) Rp375.000, rekomendasi anggaran Rp300.000, status `within_range` (hijau), level 3 terbuka |
 | Constraints | Waktu 5+ jam per minggu, kemampuan digital sedang (level 2) |
-| Filter | 47 dari 50 playbook lolos |
+| Filter | 3 dari 50 playbook lolos |
 
 **Top 3 rekomendasi**
 
@@ -92,7 +92,7 @@ Dependensi ada di `requirements.txt`.
 - Anggaran Rp300.000 dan level 3 membuat hampir semua playbook lolos filter. Ketiga rekomendasi berbiaya Rp0 sampai Rp100.000, masih di bawah anggaran.
 - Skor akhir tertinggi berasal dari gabungan kemiripan semantik dan bonus jenis masalah. Selisih skor akhir antar peringkat lebih banyak dipengaruhi oleh bonus +0,35 dibanding oleh kemiripan semantik.
 - Ketiga strategi bersifat memperluas jangkauan dan saluran penjualan (flash sale, konsinyasi, reseller). Cerita Kak Dinda menyebut "banyak yang DM tanya harga lalu hilang", yang lebih dekat ke masalah konversi (calon pembeli ragu atau pergi setelah bertanya).
-- **Temuan:** aturan diagnosis mencari teks jawaban yang persis, dan teks pada persona ("...sedikit yang membeli") berbeda dari teks di aturan ("...sebagian membeli"). Akibatnya jenis masalah konversi belum terdeteksi. [ISI: jika perbaikan sudah diterapkan dan notebook dijalankan ulang, hapus poin ini dan ganti dengan hasil terbaru]
+- **Temuan:** aturan diagnosis mencari teks jawaban yang persis, dan teks pada persona ("...sedikit yang membeli") berbeda dari teks di aturan ("...sebagian membeli"). Akibatnya jenis masalah konversi belum terdeteksi. 
 
 **Catatan penting:** skor kemiripan hanya dipakai untuk mengurutkan, bukan probabilitas keberhasilan.
 
@@ -102,7 +102,7 @@ Dependensi ada di `requirements.txt`.
 |---|---|
 | Perhitungan finansial dengan persona Kak Dinda | Sesuai rumus (lihat tabel di atas) |
 | Diagnosis dengan data contoh (`sample_user`) | Menghasilkan `low_conversion`, `weak_retention`, dan `narrow_market` |
-| Filter berlapis | 47 dari 50 playbook lolos untuk Kak Dinda |
+| Filter berlapis | 3 dari 50 playbook lolos untuk Kak Dinda |
 
 ## 8. Keterbatasan
 
@@ -123,16 +123,3 @@ Dependensi ada di `requirements.txt`.
 4. Memverifikasi playbook dengan sumber tepercaya (misalnya ILO SIYB/IYB, Kemenkop UKM) dan wawancara pelaku UMKM.
 5. Mengubah pipeline menjadi layanan FastAPI dan menghubungkannya ke aplikasi web Next.js dan database Supabase.
 6. Menambah pengaman pada narasi Gemini (hanya memakai data terstruktur, memeriksa angka, dan teks cadangan).
-
-## 10. Struktur folder
-
-```
-[nama-folder-kelompok]/
-├── README.md
-├── requirements.txt
-├── notebooks/
-│   └── ElevatePuan_Recommendation_LLM_Pipeline.ipynb
-└── data/
-    ├── personas_data.json
-    └── playbooks_data.json
-```
